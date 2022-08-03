@@ -4,7 +4,7 @@ namespace HelloWorld
 {
     internal class Program
     {
-        
+
         static void Main(string[] args)
         {
             int value = 5;
@@ -55,7 +55,8 @@ namespace HelloWorld
                 {
                     Console.WriteLine("Too hot or too cold");
                 }
-            } else
+            }
+            else
             {
                 Console.WriteLine("Sorry but the value you entered cannot be recognised " + temperature);
             }
@@ -63,3 +64,4 @@ namespace HelloWorld
         }
     }
 }
+
