@@ -8,9 +8,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             //BASIC LOGIN SYSTEM
-            string existingUser = "Neil McCarthy";
-            string existingPassword = "Password01";
-            string enteredUsername, enteredPassword;
+
             Console.WriteLine("Hello and welcome to the site.\nWould you like to:\n\n1) Sign-up\n\nOr\n\n2) Log-in\n\n");
             Console.WriteLine("Please enter the number corresponding to the answers above : ");
             string userAnswer = Console.ReadLine();
@@ -32,7 +30,6 @@ namespace HelloWorld
         public static void SignUp()
         {
             string existingUser = "Neil McCarthy";
-            string existingPassword = "Password01";
             string enteredUsername, enteredPassword;
             Console.WriteLine("Graet to meet you!\nPlease enter your username here : ");
             enteredUsername = Console.ReadLine();
