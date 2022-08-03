@@ -7,17 +7,29 @@ namespace HelloWorld
         
         static void Main(string[] args)
         {
-            //ENHANCED IF EXERCISE
-            Console.Write("Please enter a temperature : ");
-            string userInput = Console.ReadLine();
-            int convertedValue;
-            if (int.TryParse(userInput, out convertedValue))
+            //LOOPS
+            
+            //FOR LOOPS
+            for (int index0 = 1; index0 < 20; index0+=2)
             {
-                string result = convertedValue <= 15? "it is too cold here" : convertedValue <= 28 ? "it is ok" : convertedValue > 28 ? "it is hot here" : "";
-                Console.WriteLine(result);
+                Console.WriteLine(index0);
             }
 
-            
+            //DO LOOPS
+            int index1 = 0;
+            do
+            {
+                Console.WriteLine(index1);
+                index1++;
+            } while (index1 < 10);
+
+            //WHILE LOOPS
+            int index2 = 0;
+            while (index2 < 10)
+            {
+                Console.WriteLine(index2);
+                index2++;
+            }
             Console.ReadLine();
         }
     }
