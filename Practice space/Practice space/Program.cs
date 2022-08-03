@@ -10,10 +10,11 @@ namespace HelloWorld
             //LOOPS
             
             //FOR LOOPS
-            for (int index0 = 1; index0 < 20; index0+=2)
+            for (int index0 = -3; index0 < 4; index0++)
             {
                 Console.WriteLine(index0);
             }
+            Console.WriteLine("");
 
             //DO LOOPS
             int index1 = 0;
@@ -22,13 +23,14 @@ namespace HelloWorld
                 Console.WriteLine(index1);
                 index1++;
             } while (index1 < 10);
+            Console.WriteLine("");
 
             //WHILE LOOPS
-            int index2 = 0;
-            while (index2 < 10)
+            int index2 = 3;
+            while (index2 > -4)
             {
                 Console.WriteLine(index2);
-                index2++;
+                index2--;
             }
             Console.ReadLine();
         }
