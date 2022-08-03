@@ -31,7 +31,7 @@ namespace HelloWorld
             }
             else
             {
-                Console.WriteLine("github test");
+                Console.WriteLine("github test test test");
             }
             Console.Write("Please enter the temperature : ");
             string temperatureInput = Console.ReadLine();
