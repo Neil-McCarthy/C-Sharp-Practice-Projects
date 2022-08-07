@@ -7,30 +7,37 @@ namespace HelloWorld
         
         static void Main(string[] args)
         {
-            //LOOPS
-            
-            //FOR LOOPS
-            for (int index0 = -3; index0 < 4; index0++)
-            {
-                Console.WriteLine(index0);
-            }
-            Console.WriteLine("");
 
-            //DO LOOPS
-            int index1 = 0;
-            do
+            //AVERAGE SCORE EXERCISE
+            float avgScore = 0f;
+            int numberOfInputs = 0; 
+            int totalScore = 0;
+            Console.WriteLine("Hello! Please enter some values between 0 and 20 and we will calculate the average.");
+            Console.WriteLine("Remember to type -1 to stop inputs and get your average.");
+            while (true)
             {
-                Console.WriteLine(index1);
-                index1++;
-            } while (index1 < 10);
-            Console.WriteLine("");
-
-            //WHILE LOOPS
-            int index2 = 3;
-            while (index2 > -4)
-            {
-                Console.WriteLine(index2);
-                index2--;
+                Console.Write("Please enter on of your values here : ");
+                string userInput = Console.ReadLine();
+                int userInputConverted;
+                if (int.TryParse(userInput, out userInputConverted)) {
+                    if (userInputConverted >= 0 && userInputConverted <= 20)
+                    {
+                        totalScore += userInputConverted;
+                        numberOfInputs++;
+                    } else if (userInputConverted == -1) {
+                        avgScore = totalScore / numberOfInputs;
+                        Console.WriteLine("Thank you for using us.\nYour average score comes to " + avgScore);
+                        break;
+                    } else
+                    {
+                        Console.WriteLine("Looks like your input is not between 0 and 20. Please try again.");
+                        //continue;
+                    }
+                } else
+                {
+                    Console.WriteLine("Sorry but we were unable to read your input. Please try again.");
+                    //continue;
+                }
             }
             Console.ReadLine();
         }
