@@ -10,9 +10,7 @@ namespace Practice_space
 
             //CLASSES
 
-            Human denis = new Human();
-            denis.firstName = "Denis";
-            denis.lastName = "The Menace";
+            Human denis = new Human("Dennis", "the Menace", "Black", 35);
             denis.IntroduceMyself();
             Console.ReadLine();
         }
