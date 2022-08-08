@@ -8,11 +8,17 @@ namespace Practice_space
         static void Main(string[] args)
         {
 
-            //CLASSES
+            //PROPERTIES
 
-            Human denis = new Human("Dennis", "the Menace", "Black", 35);
-            denis.IntroduceMyself();
+            Box box = new Box();
+            box.length = 3;
+            box.height = 4;
+            box.width = 5;
+
+            box.DisplayInfo();
             Console.ReadLine();
+
+            
         }
     }
 }
