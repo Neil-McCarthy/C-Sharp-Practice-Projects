@@ -9,10 +9,15 @@ namespace Practice_space
     class Box
     {
         //member variables
-        public int length;
+        private int length;
         public int height;
         public int width;
         public int volume;
+
+        public void SetLength(int length)
+        {
+            this.length = length;
+        }
 
         public void DisplayInfo()
         {

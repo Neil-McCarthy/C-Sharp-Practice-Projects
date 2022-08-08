@@ -11,7 +11,8 @@ namespace Practice_space
             //PROPERTIES
 
             Box box = new Box();
-            box.length = 3;
+            //box.length = 3;
+            box.SetLength(3);
             box.height = 4;
             box.width = 5;
 
