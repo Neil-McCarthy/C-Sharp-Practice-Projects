@@ -10,14 +10,26 @@ namespace Practice_space
     {
         //member variables
         private int length;
-        public int height;
-        public int width;
+        private int height;
+        private int width;
         public int volume;
 
-        public void SetLength(int length)
+        /*public int Length { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }*/
+
+        public Box(int length, int height, int width)
         {
             this.length = length;
+            this.height = height;
+            this.width = width;
         }
+
+
+        /*public void SetLength(int length)
+        {
+            this.length = length;
+        }*/
 
         public void DisplayInfo()
         {
