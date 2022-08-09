@@ -8,10 +8,18 @@ namespace Practice_space
         static void Main(string[] args)
         {
 
-            //PROPERTIES
+            //ARRAYS
+            int[] grades = new int[5];
+            grades[0] = 5;
+            grades[1] = 4;
+            grades[2] = 3;
+            grades[3] = 2;
+            grades[4] = 1;
+            for (int index = 0;index < grades.Length; index++)
+            {
+                Console.WriteLine(grades[index]);
+            }
 
-            Box box = new Box(3, 4, 5);
-            box.DisplayInfo();
             Console.ReadLine();
 
             
