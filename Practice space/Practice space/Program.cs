@@ -9,19 +9,15 @@ namespace Practice_space
         {
 
             //ARRAYS
-            int[] grades = new int[5];
-            grades[0] = 5;
+            int[] grades = { 1, 2, 3, 4, 5 };
+            /*grades[0] = 5;
             grades[1] = 4;
             grades[2] = 3;
             grades[3] = 2;
-            grades[4] = 1;
+            grades[4] = 1;*/
 
-            string[] names = new string[5];
-            names[0] = "Bingo";
-            names[1] = "Flingo";
-            names[2] = "Mojo";
-            names[3] = "Gojo";
-            names[4] = "Blinko";
+            string[] names = { "Bingus", "Flingus", "and", "Mo" };
+            
             for (int index = 0;index < grades.Length; index++)
             {
                 Console.WriteLine(grades[index]);
