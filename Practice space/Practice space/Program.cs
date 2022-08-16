@@ -18,8 +18,6 @@ namespace Practice_space
                 {7,8,9}
             };
 
-            Console.WriteLine("7 value is {0}", arrays2D[2, 0]);
-
             //THREE DIMENSIONAL
             int[,,] arrays3D = new int[,,]
             {
@@ -33,18 +31,29 @@ namespace Practice_space
                 }
             };
 
-            Console.WriteLine("100 is {0}", arrays3D[1, 0, 0]);
+            //FOREACH LOOPS WITH MULTI DIMENSIONS
+            foreach (int index in arrays2D)
+            {
+                Console.Write(index + " ");
+            }
 
-            //CHECK NUMBER OF DIMENSIONS
-            int dimensions = arrays2D.Rank;
-            Console.WriteLine(dimensions);
-            dimensions = arrays3D.Rank;
-            Console.WriteLine(dimensions);
+            foreach (int index in arrays3D)
+            {
+                Console.Write(index + " ");
+            }
 
-
-            //WRITE ARRAYS FASTER
-            int[,] array2D2 = { { 1, 2 }, { 3, 4 } };
-            Console.WriteLine(array2D2[0, 1]);
+            //NESTED FOR LOOPS METHOD
+            for (int index = 0; index < arrays2D.GetLength(0); index++)
+            {
+                for (int blindex = 0; blindex < arrays2D.GetLength(1); blindex++)
+                {
+                    arrays2D[index, blindex] = index + blindex;
+                }
+            }
+            foreach (int index in arrays2D)
+            {
+                Console.Write(index + " ");
+            }
 
             Console.ReadLine();
 
