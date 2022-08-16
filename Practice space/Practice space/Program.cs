@@ -8,25 +8,43 @@ namespace Practice_space
         static void Main(string[] args)
         {
 
-            //ARRAYS
-            int[] grades = { 1, 2, 3, 4, 5 };
-            /*grades[0] = 5;
-            grades[1] = 4;
-            grades[2] = 3;
-            grades[3] = 2;
-            grades[4] = 1;*/
+            //MULTI DIMENSIONAL ARRAYS
 
-            string[] names = { "Bingus", "Flingus", "and", "Mo" };
-            
-            for (int index = 0;index < grades.Length; index++)
+            //TWO DIMENSIONAL 
+            int[,] arrays2D = new int[,]
             {
-                Console.WriteLine(grades[index]);
-            }
-            Console.WriteLine("");
-            for (int index = 0; index < names.Length; index++)
+                {1,2,3},
+                {4,5,6},
+                {7,8,9}
+            };
+
+            Console.WriteLine("7 value is {0}", arrays2D[2, 0]);
+
+            //THREE DIMENSIONAL
+            int[,,] arrays3D = new int[,,]
             {
-                Console.WriteLine(names[index]);
-            }
+                {
+                    {000, 001},
+                    {010, 011}
+                },
+                {
+                    {100, 101},
+                    {110, 111}
+                }
+            };
+
+            Console.WriteLine("100 is {0}", arrays3D[1, 0, 0]);
+
+            //CHECK NUMBER OF DIMENSIONS
+            int dimensions = arrays2D.Rank;
+            Console.WriteLine(dimensions);
+            dimensions = arrays3D.Rank;
+            Console.WriteLine(dimensions);
+
+
+            //WRITE ARRAYS FASTER
+            int[,] array2D2 = { { 1, 2 }, { 3, 4 } };
+            Console.WriteLine(array2D2[0, 1]);
 
             Console.ReadLine();
 
