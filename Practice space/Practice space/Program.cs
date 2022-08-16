@@ -31,29 +31,22 @@ namespace Practice_space
                 }
             };
 
-            //FOREACH LOOPS WITH MULTI DIMENSIONS
-            foreach (int index in arrays2D)
-            {
-                Console.Write(index + " ");
-            }
 
-            foreach (int index in arrays3D)
-            {
-                Console.Write(index + " ");
-            }
-
-            //NESTED FOR LOOPS METHOD
+            //NESTED FOR LOOPS METHOD - PRINT ONLY EVEN NUMBERS
             for (int index = 0; index < arrays2D.GetLength(0); index++)
             {
                 for (int blindex = 0; blindex < arrays2D.GetLength(1); blindex++)
                 {
-                    arrays2D[index, blindex] = index + blindex;
+                    if (arrays2D[index, blindex] % 2 == 0)
+                    {
+                        Console.WriteLine(arrays2D[index, blindex]);
+                    }
                 }
             }
-            foreach (int index in arrays2D)
+            /*foreach (int index in arrays2D)
             {
                 Console.Write(index + " ");
-            }
+            }*/
 
             Console.ReadLine();
 
