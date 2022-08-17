@@ -4,7 +4,24 @@ namespace Practice_space
 {
     class Program
     {
-        static void Main(string[] args)
+        static bool WinCheck(string specificPlayer, string[,] game)
+        {
+            for (int counter = 0; counter < 3; counter++)
+            {
+                if (game[counter, 0] == specificPlayer && game[counter, 1] == specificPlayer && game[counter, 2] == specificPlayer || game[0, counter] == specificPlayer && game[1, counter] == specificPlayer && game[2, counter] == specificPlayer)
+                {
+                    Console.WriteLine(specificPlayer + "'s have won. Well done!");
+                    return true;
+                }
+            }
+            if (game[0, 0] == specificPlayer && game[1, 1] == specificPlayer && game[2, 2] == specificPlayer || game[0, 2] == specificPlayer && game[1, 1] == specificPlayer && game[2, 0] == specificPlayer)
+            {
+                Console.WriteLine(specificPlayer + "'s have won. Well done!");
+                return true;
+            }
+            return false;
+        }
+            static void Main(string[] args)
         {
 
             //TIC TAC TOE
@@ -20,13 +37,16 @@ namespace Practice_space
             bool gamePlaying = true;
             bool playerSelector = true;
             int userInputRow;
-            //int userInputRowConverted;
             int userInputColumn;
-            //int userInputColumnConverted;
             string playerOutput;
             string output;
+            string feedback = "";
             while (gamePlaying)
             {
+                Console.Clear();
+                Console.WriteLine(feedback);
+
+                //INPUT CHECKS
                 Console.WriteLine("Current board:\n");
                 for (int row = 0; row < ticTacToe.GetLength(0); row++)
                 {
@@ -38,11 +58,42 @@ namespace Practice_space
                     Console.WriteLine(output);
                 }
 
-                //MUST COME BACK AND DO USER INPUT CHECKS
                 Console.WriteLine("\nPlease enter the row number :");
-                userInputRow = Int32.Parse(Console.ReadLine());
+                if (int.TryParse(Console.ReadLine(), out userInputRow))
+                {
+                    if (userInputRow < 0 || userInputRow > 2)
+                    {
+                        feedback = "Sorry but that value is not an option.\nTry something between 0 and 2.\n";
+                        continue;
+                    }
+                    feedback = "";
+                }
+                else
+                {
+                    feedback = "Sorry but that value is not an option.\nTry something between 0 and 2.\n";
+                    continue;
+                }
+
                 Console.WriteLine("Please enter the column number :");
-                userInputColumn = Int32.Parse(Console.ReadLine());
+                if (int.TryParse(Console.ReadLine(), out userInputColumn))
+                {
+                    if (userInputColumn < 0 || userInputColumn > 2)
+                    {
+                        feedback = "Sorry but that value is not an option.\nTry something between 0 and 2.\n";
+                        continue;
+                    }
+                    feedback = "";
+                }
+                else
+                {
+                    feedback = "Sorry but that value is not an option.\nTry something between 0 and 2.\n";
+                    continue;
+                }
+                if (ticTacToe[userInputRow,userInputColumn] != "-")
+                {
+                    feedback = "Sorry but it looks like that space is already taken.\nPlease try another spot.\n";
+                    continue;
+                }
                 if (playerSelector == true)
                 {
                     playerOutput = "X";
@@ -52,37 +103,15 @@ namespace Practice_space
                     playerOutput = "O";
                     playerSelector = true;
                 }
+
                 ticTacToe[userInputRow, userInputColumn] = playerOutput;
 
-                //MUST COME BACK AND MAKE THIS A FUNCTION
-                for (int counter = 0; counter < 3; counter++)
+                if (WinCheck(playerOutput, ticTacToe))
                 {
-                    if (ticTacToe[counter, 0] == "X" && ticTacToe[counter, 1] == "X" && ticTacToe[counter, 2] == "X" || ticTacToe[0, counter] == "X" && ticTacToe[1, counter] == "X" && ticTacToe[2, counter] == "X")
-                    {
-                        Console.WriteLine("Player One wins with Xs. Well done!");
-                        gamePlaying = false;
-                    }
-                    if (ticTacToe[counter, 0] == "O" && ticTacToe[counter, 1] == "O" && ticTacToe[counter, 2] == "O" || ticTacToe[0, counter] == "O" && ticTacToe[1, counter] == "O" && ticTacToe[2, counter] == "O")
-                    {
-                        Console.WriteLine("Player Two wins with Os. Well done!");
-                        gamePlaying = false;
-                    }
-                }
-                if (ticTacToe[0, 0] == "X" && ticTacToe[1, 1] == "X" && ticTacToe[2, 2] == "X" || ticTacToe[0, 2] == "X" && ticTacToe[1, 1] == "X" && ticTacToe[2, 0] == "X")
-                {
-                    Console.WriteLine("Player One wins with Xs. Well done!");
                     gamePlaying = false;
                 }
-                if (ticTacToe[0, 0] == "O" && ticTacToe[1, 1] == "O" && ticTacToe[2, 2] == "O" || ticTacToe[0, 2] == "O" && ticTacToe[1, 1] == "O" && ticTacToe[2, 0] == "O")
-                {
-                    Console.WriteLine("Player Two wins with Os. Well done!");
-                    gamePlaying = false;
-                }
-
-                }
+            }
             Console.ReadLine();
-
         }
     }
 }
-
