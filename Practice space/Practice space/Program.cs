@@ -1,4 +1,6 @@
 ﻿using System;
+//REQUIRED FOR DECLARING ARRAYLIST
+using System.Collections;
 
 namespace Practice_space
 {
@@ -7,32 +9,34 @@ namespace Practice_space
         static void Main(string[] args)
         {
 
-            //PARAMS
+            //NON-GENERIC COLLECTIONS
+            int num1 = 5;
+            float num2 = 3.14f;
+            string name = "Name";
+            ArrayList myArrayList = new ArrayList();
+            myArrayList.Add(num1);
+            myArrayList.Add(num2);
+            myArrayList.Add(name);
+            
+            foreach (object index in myArrayList)
+            {
+                Console.Write(index + " ");
+                Console.WriteLine(index.GetType());
+            }
+            myArrayList.RemoveAt(0);
+            foreach (object index in myArrayList)
+            {
+                Console.Write(index + " ");
+                Console.WriteLine(index.GetType());
+            }
+            myArrayList.Remove("Name");
+            foreach (object index in myArrayList)
+            {
+                Console.Write(index + " ");
+                Console.WriteLine(index.GetType());
+            }
 
-            int price = 50;
-            float pi = 3.14f;
-            char at = '@';
-            string book = "The Lord of the Rings";
-            ParamsMethod("this", "here", "is", "for sure", "a", "big", "long", "damn", "useless", "monkey", "string");
-            ParamsMethod2(price, pi, at, book);
-            ParamsMethod2("Hello", 5.3, '%');
             Console.ReadLine();
-        }
-
-        public static void ParamsMethod(params string[] sentence)
-        {
-            for (int index = 0; index < sentence.Length; index++)
-            {
-                Console.Write(sentence[index] + " ");
-            }
-        }
-
-        public static void ParamsMethod2(params object[] stuff)
-        {
-            foreach (object obj in stuff)
-            {
-                Console.Write(obj + " ");
-            }
         }
     }
 }
