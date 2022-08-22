@@ -1,6 +1,7 @@
 ﻿using System;
 //REQUIRED FOR DECLARING ARRAYLIST
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Practice_space
 {
@@ -36,6 +37,16 @@ namespace Practice_space
                 Console.WriteLine(index.GetType());
             }
 
+            //GENERIC COLLECTION
+            var numbers = new List<int>();
+            for (int index = 100; index < 171; index += 2)
+            {
+                numbers.Add(index);
+            }
+            foreach (int index2 in numbers)
+            {
+                Console.WriteLine(index2);
+            }
             Console.ReadLine();
         }
     }
