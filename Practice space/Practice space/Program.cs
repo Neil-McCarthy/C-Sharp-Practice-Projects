@@ -1,53 +1,66 @@
 ﻿using System;
 //REQUIRED FOR DECLARING ARRAYLIST
 using System.Collections;
-using System.Collections.Generic;
 
 namespace Practice_space
 {
     class Program
     {
+        //HASHTABLES
         static void Main(string[] args)
         {
+            Hashtable studentsTable = new Hashtable();
 
-            //NON-GENERIC COLLECTIONS
-            int num1 = 5;
-            float num2 = 3.14f;
-            string name = "Name";
-            ArrayList myArrayList = new ArrayList();
-            myArrayList.Add(num1);
-            myArrayList.Add(num2);
-            myArrayList.Add(name);
-            
-            foreach (object index in myArrayList)
-            {
-                Console.Write(index + " ");
-                Console.WriteLine(index.GetType());
-            }
-            myArrayList.RemoveAt(0);
-            foreach (object index in myArrayList)
-            {
-                Console.Write(index + " ");
-                Console.WriteLine(index.GetType());
-            }
-            myArrayList.Remove("Name");
-            foreach (object index in myArrayList)
-            {
-                Console.Write(index + " ");
-                Console.WriteLine(index.GetType());
-            }
+            Student stud1 = new Student(1, "Maria", 98);
+            Student stud2 = new Student(2, "Jason", 76);
+            Student stud3 = new Student(3, "Clara", 43);
+            Student stud4 = new Student(4, "Steve", 55);
 
-            //GENERIC COLLECTION
-            var numbers = new List<int>();
-            for (int index = 100; index < 171; index += 2)
+            studentsTable.Add(stud1.Id, stud1);
+            studentsTable.Add(stud2.Id, stud2);
+            studentsTable.Add(stud3.Id, stud3);
+            studentsTable.Add(stud4.Id, stud4);
+
+            //get individual with known ID
+            Student storedStudent1 = (Student)studentsTable[stud1.Id];
+
+            //get all values from all individuals
+            foreach (DictionaryEntry entry in studentsTable)
             {
-                numbers.Add(index);
+                Student temp = (Student)entry.Value;
+                Console.WriteLine("Student ID:{0},", temp.Id);
+                Console.WriteLine("Student Name:{0},", temp.Name);
+                Console.WriteLine("Student GPA:{0},", temp.GPA);
             }
-            foreach (int index2 in numbers)
+            Console.WriteLine("");
+            //improved - get all values from all individuals
+            foreach (Student value in studentsTable.Values)
             {
-                Console.WriteLine(index2);
+                Console.WriteLine("Student ID:{0},", value.Id);
+                Console.WriteLine("Student Name:{0},", value.Name);
+                Console.WriteLine("Student GPA:{0},", value.GPA);
             }
             Console.ReadLine();
+        }
+    }
+
+    class Student
+    {
+        //property called Id
+        public int Id { get; set; }
+
+        //property called Name
+        public string Name { get; set; }
+
+        //property called GPA
+        public float GPA { get; set; }
+
+        //constructor
+        public Student(int id, string name, float GPA)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.GPA = GPA;
         }
     }
 }
