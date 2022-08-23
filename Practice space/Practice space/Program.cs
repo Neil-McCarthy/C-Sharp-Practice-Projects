@@ -9,31 +9,30 @@ namespace Practice_space
         //HASHTABLES
         static void Main(string[] args)
         {
+            //CHALLENGE- TAKE ALL VALUES FROM STUDENT ARRAY AND INSERT INTO HASHTABLE
+            //IF ID IS SAME SKIP STUDENT AND DISPLAY ERROR: "Sorry, a student with the same ID already exists."
+
+            Student[] students = new Student[5];
+            students[0] = new Student(1, "Denis", 88);
+            students[1] = new Student(2, "Olaf", 97);
+            students[2] = new Student(6, "Ragnar", 65);
+            students[3] = new Student(1, "Luise", 73);
+            students[4] = new Student(4, "Levi", 58);
+
+
             Hashtable studentsTable = new Hashtable();
 
-            Student stud1 = new Student(1, "Maria", 98);
-            Student stud2 = new Student(2, "Jason", 76);
-            Student stud3 = new Student(3, "Clara", 43);
-            Student stud4 = new Student(4, "Steve", 55);
-
-            studentsTable.Add(stud1.Id, stud1);
-            studentsTable.Add(stud2.Id, stud2);
-            studentsTable.Add(stud3.Id, stud3);
-            studentsTable.Add(stud4.Id, stud4);
-
-            //get individual with known ID
-            Student storedStudent1 = (Student)studentsTable[stud1.Id];
-
-            //get all values from all individuals
-            foreach (DictionaryEntry entry in studentsTable)
+            foreach (Student studentIndex in students)
             {
-                Student temp = (Student)entry.Value;
-                Console.WriteLine("Student ID:{0},", temp.Id);
-                Console.WriteLine("Student Name:{0},", temp.Name);
-                Console.WriteLine("Student GPA:{0},", temp.GPA);
+                if (studentsTable.ContainsKey(studentIndex.Id))
+                {
+                    Console.WriteLine("Sorry, a student with the same ID already exists.");
+                } else
+                {
+                    studentsTable.Add(studentIndex.Id, studentIndex);
+                }
             }
-            Console.WriteLine("");
-            //improved - get all values from all individuals
+
             foreach (Student value in studentsTable.Values)
             {
                 Console.WriteLine("Student ID:{0},", value.Id);
