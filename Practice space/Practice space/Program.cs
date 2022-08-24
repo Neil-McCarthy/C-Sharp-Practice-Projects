@@ -1,6 +1,7 @@
 ﻿using System;
 //REQUIRED FOR DECLARING DICTIONARY
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Practice_space
 {
@@ -51,6 +52,16 @@ namespace Practice_space
             else
             {
                 Console.WriteLine("Sorry but that we cannot find the key you're looking for.");
+            }
+
+
+            //DISPLAY ALL FROM DICTIONARY
+
+            for (int count = 0; count < employeesDictionary.Count; count++)
+            {
+                KeyValuePair<string, Employee> keyValuePair = employeesDictionary.ElementAt(count);
+                Employee employeeValue = keyValuePair.Value;
+                Console.WriteLine("Employee Name: {0}, Role: {1}, Salary: {2}, Rate: {3} \n", employeeValue.Name, employeeValue.Role, employeeValue.Salary, employeeValue.Rate);
             }
             Console.ReadLine();
         }
