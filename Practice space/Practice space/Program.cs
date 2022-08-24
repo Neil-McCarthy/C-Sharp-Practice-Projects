@@ -39,7 +39,19 @@ namespace Practice_space
 
             Employee emp1 = employeesDictionary["Intern"];
             Console.WriteLine("Employee Name: {0}, Role: {1}, Salary: {2}, Rate: {3} \n", emp1.Name, emp1.Role, emp1.Salary, emp1.Rate);
-            
+
+
+            //TRYGETVALUE - EXAMPLE
+
+            Employee result;
+            if (employeesDictionary.TryGetValue("Lead Developer", out result))
+            {
+                Console.WriteLine("Employee Name: {0}, Role: {1}, Salary: {2}, Rate: {3} \n", result.Name, result.Role, result.Salary, result.Rate);
+            }
+            else
+            {
+                Console.WriteLine("Sorry but that we cannot find the key you're looking for.");
+            }
             Console.ReadLine();
         }
     }
