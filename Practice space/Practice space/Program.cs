@@ -38,6 +38,15 @@ namespace Practice_space
                 employeesDictionary.Add(emp.Role, emp);
             }
 
+            //EDITING AND REMOVING ENTERIES FROM DICTIONARY
+            string keyToUpdate = "HR";
+            if (employeesDictionary.ContainsKey(keyToUpdate))
+            {
+                employeesDictionary[keyToUpdate] = new Employee("HR", "Eleka", 26, 18);
+            }
+
+            string keyToRemove = "Manager";
+            employeesDictionary.Remove(keyToRemove);
             Employee emp1 = employeesDictionary["Intern"];
             Console.WriteLine("Employee Name: {0}, Role: {1}, Salary: {2}, Rate: {3} \n", emp1.Name, emp1.Role, emp1.Salary, emp1.Rate);
 
